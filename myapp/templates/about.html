@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>MCBS EMS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/file.png'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <style>
+
+
+        /* footer logo */
+ 
+     
+        /* footer logo */
+        .footer-logo-section {
+    display: flex;
+    justify-content: center; /* Center align the logos */
+    align-items: center;
+    gap: 5px; /* Gap between each logo */
+        }
+
+        .footer-logo {
+            height: 30px; /* Adjust height as needed */
+            width: auto; /* Maintain aspect ratio */
+            margin: 5px; /* Additional margin if needed */
+            object-fit: contain;
+        }
+
+    /* footer logo end */
+
+
+
+/* Extra about start */
+
+
+
+.section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-area {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.text-area h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.text-area h5 {
+    line-height: 1.7;
+}
+
+.text-area p {
+    font-size: 1em;
+    line-height: 2.3;
+    margin-bottom: 20px;
+}
+
+.image-area {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-area img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border: 8px solid black;
+    transition: transform 0.3s ease;
+}
+
+.image-area img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+    }
+
+    .section.reverse {
+        flex-direction: column;
+    }
+
+    .text-area, .image-area {
+        padding: 10px;
+    }
+
+    .image-area img {
+        max-width: 100%;
+    }
+
+    .text-area h1 {
+        font-size: 1.5em;
+    }
+
+    .text-area h5, .text-area p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .section.reverse {
+        flex-direction: column;
+    }
+
+    .text-area, .image-area {
+        padding: 5px;
+    }
+
+    .image-area img {
+        max-width: 100%;
+        border-width: 4px;
+    }
+
+    .text-area h1 {
+        font-size: 1.2em;
+    }
+
+    .text-area h5, .text-area p {
+        font-size: 0.8em;
+    }
+}
+
+
+
+/* extra about stop */
+
+/* Carousel Start  */
+.carousel-inner {
+            max-height: 300px;
+            overflow-y: hidden;
+        }
+
+        .owl-carousel-item img {
+        height: 710px;
+        object-fit: cover;
+        }
+
+        .carousel-inner {
+            max-height: 640px; /* Set your desired height */
+            overflow-y: hidden;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+        /* Carousel end */
+
+        
+
+
+
+        /* what we provide start */
+         
+        /*
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        */
+
+
+.main-containerindus {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f0f0f0; /* Light background color */
+    color: #333; /* Dark text color */
+    padding: 40px;
+}
+
+.header-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.description-text {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.industry-cards {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px;
+    max-width: 1200px; /* Adjust as needed for responsiveness */
+    margin-top: 20px;
+}
+
+.industry-card {
+    width: calc(20% - 20px); /* 20% width for five cards per row with gap */
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.industry-card img {
+    width: 100%;
+    height: 150px; /* Fixed height for all images */
+    object-fit: cover; /* Cover and center the image within the container */
+    border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
+}
+
+.industry-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+}
+
+.industry-title {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+
+      /* what we provide end   */
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+        <a href="/#" class="navbar-brand bg-white d-flex align-items-center px-4 px-lg-5">
+            <img src="{% static 'img/file.png'%}" alt="MCBS Logo" style="width: 120px; height: 75px; margin-right: 20px;">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/#" class="nav-item nav-link ">Home</a>
+                <a href="/loadabout" class="nav-item nav-link active">About</a>
+                <a href="/loadservice" class="nav-item nav-link">Services</a>
+                <a href="/loadinfrastructure" class="nav-item nav-link">Infrastructure</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Project Accomplished</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="/emvariousindus" class="dropdown-item">EMS For Various Industry</a>
+                        <a href="/spacequalified" class="dropdown-item">Space Qualified Hi-Rel <br>
+                            Electronics Fabrications</a>
+                    </div>
+                </div>
+                <!-- <a href="facilities.html" class="nav-item nav-link">facilities</a> -->
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="/achievement" class="dropdown-item">Achievement</a>
+                        <a href="/awardscertificate" class="dropdown-item">Awards/Certificates</a>
+<!--                        <a href="team.html" class="dropdown-item">Our Team</a>-->
+<!--                        <a href="feature.html" class="dropdown-item">Features</a>-->
+                        <a href="/careers" class="dropdown-item">Careers</a>
+                        <a href="/testimonial" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div>
+                <a href="/loadcontact" class="nav-item nav-link">Contact</a>
+            </div>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block" ><a href="tel:+9191310 80293"><i class="fa fa-headphones text-primary me-3"></i>+9191310 80293</a></h4>
+        </div>
+    </nav>
+
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <!-- <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div> -->
+    <!-- Page Header End -->
+
+    <!-- about animation start -->
+<!-- 
+<div class="mcbs-body">
+<div class="mcbs-container">
+    <div class="mcbs-content ">
+        <h1 >MCBS-EMS</h1>
+    </div>
+    <svg class="mcbs-animation" viewBox="0 0 1920 1080"> -->
+        <!-- PCB Traces -->
+        <!-- <path class="mcbs-line" d="M100 100 H500 V300 H800" style="animation-duration: 5s;"></path>
+        <path class="mcbs-line" d="M300 200 H700 V500 H1000" style="animation-duration: 6s;"></path>
+        <path class="mcbs-line" d="M500 300 H900 V700 H1200" style="animation-duration: 7s;"></path>
+        <path class="mcbs-line" d="M700 400 H1100 V900 H1400" style="animation-duration: 4s;"></path>
+        <path class="mcbs-line" d="M900 500 H1300 V1100 H1600" style="animation-duration: 5s;"></path> -->
+
+        <!-- Square IC -->
+        <!-- <rect class="mcbs-ic" x="805" y="305" width="100" height="100"></rect> -->
+        <!-- Pins for Square IC -->
+        <!-- <rect class="mcbs-pin" x="790" y="320" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="790" y="340" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="790" y="360" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="790" y="380" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="910" y="320" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="910" y="340" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="910" y="360" width="10" height="10"></rect>
+        <rect class="mcbs-pin" x="910" y="380" width="10" height="10"></rect>
+    </svg>
+</div> -->
+
+<!-- about animation stop -->
+
+
+
+<!-- extra about start -->
+
+
+<div class="section" id="about-us">
+    <div class="text-area">
+        <h1>About Us</h1>
+        <h5>Established on 25th July 1985, MCBS is a leading manufacturer & service provider into Electronics Manufacturing Services (EMS) and have been working with many renowned customers like ISRO, Velankani, Masibus, Amtech, Vinrox, Techno Electromech, Mantra Softech (India) Pvt. Ltd., Genus Lighting and several other reputed organizations pan India.
+            MCBS has State of the Art, high end, high-tech and high speed SMT & MI facility including Hi-Rel manufacturing tools and systems to undertake any complex electronics projects in various areas of Space (Space grade), Defence (MIL grade), Industrial and Commercial / Consumer Electronics areas.
+        </h5>
+    </div>
+    <div class="image-area">
+        <img src="{% static 'img/ABOUT IMG.jpg' %}" alt="MCBS Office">
+    </div>
+</div>
+
+<div class="section reverse" id="vision-mission">
+    <div class="text-area">
+        <h1>Our Vision & Mission</h1>
+        <h5>
+            <strong>Vision:</strong> MCBS-EMS would like to emerge as a leading manufacturing and service provider for various areas of Electronics industry including Space and Defence.
+            <br><br>
+            <strong>Mission:</strong> Cost effective quality products & solutions using State of the Art Technology and Innovations would be paramount in our work culture. Customer satisfaction and concerted efforts shall be key to our success, progress and growth. MCBS-EMS will be committed to comply with the requirements and continually improve the effectiveness of quality management system to achieve the goals.
+        </h5>
+    </div>
+    <div class="image-area">
+        <img src="{% static 'img/vision & mission.png' %}" alt="Vision and Mission">
+    </div>
+</div>
+
+<div class="section" id="mcbs-verticals">
+    <div class="text-area">
+        <h1>MCBS Verticals</h1>
+        <h5>
+            &#9758; Contract Manufacturing (All Electronic Items) <br>
+            &#9758; Turnkey Projects <br>
+            &#9758; Complete Product Building <br>
+            &#9758; Space Grade Fabrication of Electronic Assemblies <br>
+            &#9758; Defence Grade Fabrication & Assembly work <br>
+            &#9758; Complex Electronics PCB Assemblies Requiring Quality & Volume <br>
+            &#9758; Consumer / Commercial / Industrial Grade PCB Assemblies <br>
+        </h5>
+    </div>
+    <div class="image-area">
+        <img src="{% static 'img/vert.png' %}" alt="MCBS Verticals">
+    </div>
+</div>
+
+<div class="section reverse" id="space-defence">
+    <div class="text-area">
+        <h1>Space & Defence</h1>
+        <h5>
+            &#10687; DSIR registered in House R&D unit <br>
+            &#10687; Clean room environment for entire EMS facility <br>
+            &#10687; ISO registered BIS certified products <br>
+            &#10687; ISRO qualified man power <br>
+            &#10687; Space qualified tools & facilities <br>
+            &#10687; Quality certification & award winning from govt. and other agencies <br>
+            &#10687; Trained & Qualified Manpower for complex Hi-Rel work <br>
+            &#10687; ISO Registered and BIS Certified Products
+        </h5>
+    </div>
+    <div class="image-area">
+        <img src="{% static 'img/ISRO Space.jpg' %}" alt="Space and Defence">
+    </div>
+</div>
+
+<div class="section" id="mcbs-strengths">
+    <div class="text-area">
+        <h1>MCBS Strengths</h1>
+        <h5>
+            &#10687; MCBS is a professionally managed company to provide products and services in Hi-Tech areas of Communication, Broadcasting, and CCTV field. <br>
+            &#10687; MCBS is a 30 years old enterprise with a track record of many innovations and has developed more than 500 products indigenously following 'Made in India' philosophy all the time. <br>
+            &#10687; MCBS has numerous patents, industry design and trademark registrations, Govt. approvals, certifications from national and international labs, and many awards for products and processes. <br>
+            &#10687; Skill development has been at the heart of MCBS and thus trained more than 10,000 engineers and technicians and it has partnerships with Govt. organizations for i-KVK and similar programmes. <br>
+        </h5>
+    </div>
+    <div class="image-area">
+        <img src="{% static 'img/strength.jpg' %}" alt="MCBS Strengths">
+    </div>
+</div>
+
+
+
+
+<!-- extra about end -->
+
+
+    <!-- About Start -->
+    <!-- <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container about py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100" style="position: relative;">
+                        <img class="position-absolute img-fluid" src="img/ems building.png" style="object-fit: contain; width: 100%; height: auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" alt="">
+                        <div class="text-container" style="position: absolute; top: 50px; left: 50px; color: white; font-size: 18px; padding: 10px 20px; border-radius: 8px;">
+                            Your written text goes here
+                        </div>
+                        <div class="overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 150px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7));"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
+                    <h1 class="mb-5">EMS Facility</h1>
+                    <p class="mb-5">Modern Communication and Broadcast Systems Pvt.Ltd., popularly known as “MCBS”, is headquartered in Ahmedabad, Gujarat, India. Established in 1985 by professionals and technocrats with over 20 years of engineering experience from India's pioneering Space Technology Institutions, MCBS has been serving the Communication and Broadcast industry, CCTV, and Security systems for over 30 years.</p>
+                    <div class="features">
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">🛠️</span> High-end SMT System complete with pick & place, Printer, Reflow oven, AOI, and BGA work station.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">🔬</span> Hi-Rel facility with professional class Weller soldering & rework station, Leica microscope up to 50x zoom.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">🧼</span> Clean room environment and facility for class 1,00,000 standard.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">💨</span> Laminar Airflow system class 100 for Hi-Rel work.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">⚡</span> ESD safe floor, work area & tools.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">📏</span> Strict maintenance of Hi-rel standards for day-to-day work.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">👷‍♂️👷‍♀️</span> Trained & Qualified manpower for complex Hi-Rel work.</p>
+                        <p style="background-color: #9fe2f5; padding: 10px; border-radius: 5px;"><span style="font-size: 20px;">✅🏷️</span> ISO registered and BIS certified products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- About End -->
+
+
+    <!-- what we provide start-->
+
+    <div class="main-containerindus">
+        <h1 class="header-title">Industries We Serve</h1>
+        <p class="description-text">With our niche industry experience, we help our clients gain an upper hand in a rapidly changing market environment.</p>
+        <div class="industry-cards">
+            <div class="industry-card">
+                <img src="{% static 'img/Electronics.jpeg'%}" alt="Electronics Industry">
+                <h3 class="industry-title">Electronics Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/automobile.jpg'%}" alt="Automobile Industry">
+                <h3 class="industry-title">Automobile Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/aerospace.jpg'%}" alt="Telecom Industry">
+                <h3 class="industry-title">Space & Defence Industry</h3>   
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/light.jpg'%}" alt="Lighting Industry">
+                <h3 class="industry-title">Lighting Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/medical.jpg'%}" alt="Medical Industry">
+                <h3 class="industry-title">Medical Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/automative.png'%}" alt="Automotive Industry">
+                <h3 class="industry-title">Automotive Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/solar.jpg'%}" alt="Solar Industry">
+                <h3 class="industry-title">Solar Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/iot dev.png'%}" alt="IoT Industry">
+                <h3 class="industry-title">IoT Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/Power & Energy.jpeg'%}" alt="Power & Energy Industry">
+                <h3 class="industry-title">Power & Energy</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/IT Inds.jpg'%}" alt="IT Industry">
+                <h3 class="industry-title">IT Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/communication.jpg'%}" alt="Communications Industry">
+                <h3 class="industry-title">Communications</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/Surveillance.jpg'%}" alt="Surveillance Industry">
+                <h3 class="industry-title">Surveillance Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/Telecom-Industry-2.jpg'%}" alt="Surveillance Industry">
+                <h3 class="industry-title">Telecom Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/mobile.jpg'%}" alt="Surveillance Industry">
+                <h3 class="industry-title">Mobile Industry</h3>
+            </div>
+            <div class="industry-card">
+                <img src="{% static 'img/Industrial Control.jpg'%}" alt="Surveillance Industry">
+                <h3 class="industry-title">Industrial Safety & Fire Control Industry</h3>
+            </div>
+        
+        </div>
+    </div>
+
+     <!-- what we provide end -->
+
+  
+<!-- Footer Start -->
+<div class="container-fluid footer ">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="mb-4">Contact us</h4>
+                <p class="mb-2">
+                    <i class="fa fa-envelope me-3"></i>
+                    <a href="mailto:info@mcbsintl.com">info@mcbsintl.com</a>
+                </p>
+                <p class="mb-2">
+                    <i class="fa fa-phone-alt me-3"></i>
+                    <a href="tel:+919131080293">+91 9131080293</a>
+                </p>
+                <p class="mb-2">
+                    <i class="fab fa-whatsapp me-3"></i>
+                    <a href="https://wa.me/919131080293">+91 9131080293</a>
+                </p>
+                <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-3"></i>
+                    B-134-139, GIDC Electronics Estate, Sector-25, Gandhinagar-382024, Gujarat, India
+                </p>
+                <p class="mb-8">
+                    <i class="fa fa-clock me-3"></i>Mon to Sat <br>10:00 AM - 06:00 PM
+                </p>
+            </div>
+
+            <!-- Services Section -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="mb-4">Quick Link</h4>
+                <p><a href="/#">Home</a></p>
+                <p><a href="/loadabout">About us</a></p>
+                <p><a href="/loadservice">Services</a></p>
+                <p><a href="/loadinfrastructure">Infrastructure</a></p>
+                <p><a href="/loadcontact">Contact us</a></p>
+                <div class="footer-logo-section">
+                    <img src="{% static 'img/9001.jpg'%}" alt="ISO Logo" class="footer-logo">
+                    <img src="{% static 'img/Indian_Space_Research_Organisation_Logo.svg-removebg-preview.jpg'%}" alt="ISRO Logo" class="footer-logo">
+                    <img src="{% static 'img/DRDO.jpg'%}" alt="DRDO Logo" class="footer-logo">
+                    <img src="{% static 'img/Space_Applications_Centre_logo-removebg-preview.jpg'%}" alt="Space Applications Centre" class="footer-logo">
+                </div>
+                
+            </div> 
+
+            <!-- Account Section -->
+            <div class="col-lg-3 col-md-6">
+                <!-- <h4 class="mb-4">Account</h4>
+                <p><a href="myprofile.html" class="text-dark">My Profile</a></p>
+                <p><a href="myorders.html" class="text-dark">My Orders</a></p>
+                <p><a href="trackinquiry.html" class="text-dark">Track Inquiry</a></p>
+                <p><a href="trackquotation.html" class="text-dark">Track Quotation</a></p> -->
+                <!-- <div class="footer-logo-section">
+                    <img src="img/9001.jpg" alt="ISO Logo" class="footer-logo">
+                    <img src="img/Indian_Space_Research_Organisation_Logo.svg-removebg-preview.jpg" alt="UL Logo" class="footer-logo">
+                    <img src="img/DRDO.jpg" alt="ISRO Logo" class="footer-logo">
+                    <img src="img/ministry-of-defence-logo.png" alt="Ministry of Defence Logo" class="footer-logo">
+                </div> -->
+            </div>
+
+            <!-- Follow Us Section -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="mb-4">Follow Us</h4>
+               <div class="d-flex pt-2">
+                        <a href="https://www.linkedin.com/showcase/mcbs-ems/about/" style="margin-right: 15px;">
+                            <i class="fab fa-linkedin" style="font-size: 2rem; color: #0077b5;"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCXOqgJp2fvgp_h25prmP1Rw" style="margin-right: 15px;">
+                            <i class="fab fa-youtube" style="font-size: 2rem; color: #ff0000;"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100069168183177&sk=about" style="margin-right: 15px;">
+                            <i class="fab fa-facebook" style="font-size: 2rem; color: #3b5998;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mcbs_ems/" style="margin-right: 15px;">
+                            <i class="fab fa-instagram" style="font-size: 2rem; color: #e4405f;"></i>
+                        </a>
+               </div>
+                
+                <!-- <h4 class="mt-4 mb-4">Payment Methods</h4>
+                <div class="d-flex pt-2">
+                    <img src="img/paytm.png" alt="Paytm">
+                    <img src="img/neft.png" alt="NEFT">
+                    <img src="img/rtgs.png" alt="RTGS">
+                    <img src="img/visa.png" alt="Visa">
+                    <img src="img/mastercard.png" alt="MasterCard">
+                    <img src="img/amex.png" alt="American Express">
+                </div> -->
+                <!-- <h4 class="mt-4 mb-4">Delivery Services</h4>
+                <div class="d-flex pt-2">
+                    <img src="img/tirupati.png" alt="Tirupati">
+                    <img src="img/bluedart.png" alt="Blue Dart">
+                    <img src="img/delhivery.png" alt="Delhivery">
+                    <img src="img/dtdc.png" alt="DTDC">
+                    <img src="img/smartr.png" alt="Smartr">
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; <a class="border-bottom" href="#">MCBS-EMS. ALL RIGHTS RESERVED.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a href="/loadabout" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js'%}"></script>
+<script src="{% static 'lib/easing/easing.min.js'%}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js'%}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>

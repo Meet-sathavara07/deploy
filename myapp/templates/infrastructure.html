@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    
+    <meta charset="utf-8">
+    <title>MCBS EMS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/file.png'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <style>
+        /* Your existing CSS styles here */
+        /* infrastructure start */
+
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+            border: 2px solid #ccc; /* Container border */
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 4px solid #000000; /* Image border */
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 1 1 calc(50% - 20px); /* 2 items per row on tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                flex: 1 1 calc(100% - 20px); /* 1 item per row on mobile */
+            }
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+
+        /* infrastructure end */
+
+
+          /* footer logo */
+ 
+          .footer-logo-section {
+    text-align: center; /* Center align the logos */
+}
+
+.footer-logo {
+    height: 30px; /* Adjust height as needed */
+    width: 10;
+    margin: 5px;
+    object-fit: contain;
+    mix-blend-mode:hard-light;
+    display: inline-block;
+}
+    /* footer logo end */
+
+
+/* Extra infrastructure start */
+
+  /* extra service start */
+
+.pcb-services-body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.service-card {
+    display: flex;
+    background-color: #d3f5f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+    margin: 10px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex-wrap: wrap;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card-image {
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.service-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 2;
+    min-width: 300px;
+}
+
+.service-card-content h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.service-card-content p {
+    margin: 0;
+    color: #555;
+}
+
+@media (max-width: 1024px) {
+    .service-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .service-card-image {
+        width: 100%;
+        height: 200px;
+    }
+    .service-card-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card-content h2 {
+        font-size: 20px;
+    }
+    .service-card-content p {
+        font-size: 14px;
+    }
+}
+
+ /* extra services end */
+
+ /* extra infrastructure end */
+
+        /* footer logo start  */
+        .footer-logo {
+    mix-blend-mode: darken;
+    width: 65px;
+    height: auto;
+    margin-right: 20px;
+    
+    /* footer logo end */
+}
+
+ /* pcb home main */
+
+
+        /* pcb home main end */
+
+
+           
+    /* r&d Infrastructure start */
+
+
+        .containerst {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Main section styles */
+        .main-section {
+            background-color: #bae4f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* Changed to column */
+            padding: 20px;
+        }
+
+        .images {
+            display: flex;
+            flex-direction: row; /* Changed to row for horizontal layout */
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            width: 32%; /* Adjust width for three images to fit horizontally */
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .info {
+            padding: 20px;
+        }
+
+        .info h1 {
+            color: #e63946;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .info ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Overlay styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Button styles */
+        .button {
+            background-color: #e63946;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #bf3e3e;
+        }
+        
+        /* r&d Infrastructure end */
+ /* pcb home main */
+
+        .image-section img {
+    width: 600px; /* Set the desired width */
+    height: 450px; /* Set the desired height */
+    object-fit: cover; /* Ensure the image covers the set dimensions */
+    display: block;
+    border: 8px solid black; /* Added black border */
+}
+
+        /* pcb home main end */
+
+
+        
+    /* in side machine start  */
+    
+    .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .service-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            background-color: #bae4f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: calc(33.333% - 20px);
+            margin-bottom: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px; /* initial small size */
+            height: 80px; /* initial small size */
+            background-color: #ffffff;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            transition: width 0.3s, height 0.3s;
+            overflow: hidden;
+        }
+
+        .icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .icon-wrapper:hover {
+            width: 150px; /* larger size on hover */
+            height: 150px; /* larger size on hover */
+        }
+
+        .icon-wrapper:hover img {
+            transform: scale(1); /* maintain the original scale to show full image */
+        }
+
+        .service-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .service-text {
+            color: #666;
+            height: 230px;
+            line-height: 1.6;
+        }
+
+        .action-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 1024px) {
+            .service-item {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-item {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .service-heading {
+                font-size: 20px;
+            }
+
+            .service-text {
+                height: auto;
+                line-height: 1.4;
+            }
+
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .icon-wrapper:hover {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        /* in side machine end  */
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+        <a href="/#" class="navbar-brand bg-white d-flex align-items-center px-4 px-lg-5">
+            <img src="{% static 'img/file.png'%}" alt="MCBS Logo" style="width: 120px; height: 75px; margin-right: 20px;">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/#" class="nav-item nav-link ">Home</a>
+                <a href="/loadabout" class="nav-item nav-link ">About</a>
+                <a href="/loadservice" class="nav-item nav-link">Services</a>
+                <a href="/loadinfrastructure" class="nav-item nav-link active">Infrastructure</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Project Accomplished</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="/emvariousindus" class="dropdown-item">EMS For Various Industry</a>
+                        <a href="/spacequalified" class="dropdown-item">Space Qualified Hi-Rel <br>
+                            Electronics Fabrications</a>
+                    </div>
+                </div>
+                <!-- <a href="facilities.html" class="nav-item nav-link">facilities</a> -->
+
+                <div class="nav-item dropdown">
+                    <a href="/#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="/achievement" class="dropdown-item">Achievement</a>
+                        <a href="/awardscertificate" class="dropdown-item">Awards/Certificates</a>
+<!--                        <a href="team.html" class="dropdown-item">Our Team</a>-->
+<!--                        <a href="feature.html" class="dropdown-item">Features</a>-->
+                        <a href="/careers" class="dropdown-item">Careers</a>
+                        <a href="/testimonial" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div>
+                <a href="/loadcontact" class="nav-item nav-link">Contact</a>
+            </div>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block" ><a href="tel:+9191310 80293"><i class="fa fa-headphones text-primary me-3"></i>+9191310 80293</a></h4>
+        </div>
+    </nav>
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <!-- <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Our Team</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Our Team</li>
+                </ol>
+            </nav>
+        </div>
+    </div> -->
+    <!-- Page Header End -->
+
+
+<div class="pcb-services-body">
+
+<div class="service-card">
+        <img src="{% static 'img/MCBS-EMS Room.PNG'%}" alt="MCBS EMS Room" class="service-card-image">
+    <div class="service-card-content">
+        <h2>EMS Facility</h2>
+        <p>
+                &#10687; High-end SMT System Complete with pick & place, printer, reflow oven, AOI, and BGA work station.<br>
+
+                &#10687; Hi-Rel Facility With professional class Weller soldering & rework station, Leica microscope up to 50x zoom.<br>
+
+                &#10687; Cleanroom Environment Facility for class 1,00,000 standard.<br>
+
+                &#10687; Laminar Airflow System Class 100 for Hi-Rel work.<br>
+
+                &#10687; ESD Safe Floor, work area & tools.<br>
+
+                &#10687; High and standards compliance Of Hi-rel standards for day-to-day work.<br>
+
+                &#10687; Trained & Qualified Manpower For complex Hi-Rel work.<br>
+
+                &#10687; ISO Registered and BIS Certified Products
+            </p>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- Extra 1 infrastructure end -->
+
+
+
+     <!-- r&d Infrastructure start -->
+     
+     <div class="containerst">
+        <section class="main-section">
+            
+            <div class="info">
+                <h1>Infrastructure of MCBS-EMS</h1>
+                <p>MCBS-EMS is located in a pollution-free electronics area of 10,000 square meters (100,000 square feet) with a built-up area of 60,000 square feet, which houses manufacturing, assembly and integration, R&D facilities, marketing, warehouses, and other departments.</p>
+                <ul>
+                    <li>Clean room environment with 1,00,000 standard</li>
+                    <li>High end & High speed SMT line for RoHS & Non-RoHS capability</li>
+                    <li>Dedicated PTH assembly with wave soldering for RoHS & Non-RoHS</li>
+                    <li>Hi-Rel facility with necessary tools for space, Defence work</li>
+                    <li>In-Line AOI Leica Microscope 50X zoom, BGA rework station</li>
+                    <li>End-to-End solutions for Hardware & software applications</li>
+                    <li>Manufactured & supplied more than 200 projects of all types for professional industry organizations</li>
+                    <li>Qualified and trained manpower to plan and execute projects</li>
+                </ul>
+
+<!--                <div class="images">-->
+<!--                    <div class="image">-->
+<!--                        <img src="{% static 'img/infra1.jpg'%}" alt="Building 1">-->
+<!--                    </div>-->
+<!--                    <div class="image">-->
+<!--                        <img src="{% static 'img/infra2.png'%}" alt="Building 2">-->
+<!--                    </div>-->
+<!--                    <div class="image">-->
+<!--                        <img src="{% static 'img/infra4.png'%}" alt="Building 3">-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+            
+        </section>
+
+        <!-- Fullscreen image overlay -->
+        <div class="overlay" id="overlay">
+            <img id="overlayImage" src="" alt="Full Size Image">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for image overlay
+        const images = document.querySelectorAll('.image img');
+        const overlay = document.getElementById('overlay');
+        const overlayImage = document.getElementById('overlayImage');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlay.style.display = 'flex';
+                overlayImage.src = image.src;
+            });
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+    </script>
+    <!-- r&d Infrastructure end -->
+
+
+ <!-- Extra 2 infrastructure start -->
+
+<!--    <div class="containers reverse about-img">-->
+<!--        <div class="text-section">-->
+<!--            <h1>Space & Defence (Project and Work undertaken)</h1>-->
+<!--            <p>-->
+<!--                &#10687; Research & development <br> -->
+<!--                &#10687; Design and development <br>-->
+<!--                &#10687; Fabrication and assembly sub-assembly <br>-->
+<!--                &#10687; Outsourcing of components assemblies and systems for Space & Defence <br>-->
+<!--                &#10687; Turnkey projects for ground and space segment <br>-->
+<!--            </p>-->
+<!--            &lt;!&ndash; <button>KNOW MORE</button> &ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="image-section ">-->
+<!--            <img src="{% static 'img/chandrayan 3.png'%}" alt="mcbs">-->
+<!--        </div>-->
+<!--    </div>-->
+   
+    <!-- Extra 2 infrastructure end -->
+
+    
+    <!-- in side machine start  -->
+    <div class="content-wrapper">
+        <h1>Development Services</h1>
+        <div class="service-list">
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/Stencil.png'%}" alt="Stencil Printer Image">
+                </div>
+                <h2 class="service-heading">STENCIL PRINTER | XPERT 3 | EKRA, GERMANY</h2>
+                <p class="service-text">* PCB Size 508x508mm. <br>
+                    * Fully Automatic Printer. <br>
+                    * Process alignment capability 2 Cpk @ ± 15μm. <br>
+                    * Automatic Cleaning. <br>
+                    * Paste Coverage inspection. <br></p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/pick plan.png'%}" alt="Pick & Place Machine Image">
+                </div>
+                <h2 class="service-heading">PICK & PLACE | NPM–W2 | PANASONIC, JAPAN</h2>
+                <p class="service-text">* 220 Feeders, Automatic 20
+                    Tray <br>
+                    * Part Handling: 0.6x0.3mm
+                    (0201) to 35x35mm <br>
+                    * Board Size: 750mm to 460mm <br>
+                    * Rated Speed:125000cph <br>
+                    * Placement Accuracy: ±30 micron Cpk ≥1.0 <br>
+                    * Intelligent Tape feeders & Stick
+                    Feeders <br> </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/reflow.png'%}" alt="Reflow Oven Image">
+                </div>
+                <h2 class="service-heading">REFLOW OVEN | MR933+ | VITRONICS, USA</h2>
+                <p class="service-text">* 9 TOP+BOT Heating Zones. <br>
+                    * 3 TOP+BOT Cooling Zones. <br>
+                    * Smart Board Tracking. <br>
+                    * Width Adjustable Chain Conveyer. <br>
+                    * Auto Lubricant System. <br> </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/AO Inspection.png'%}" alt="Automatic Optical Inspection Image">
+                </div>
+                <h2 class="service-heading">AUTOMATIC OPTICAL INSPECTION | S3088 | VISCOM, GERMANY</h2>
+                <p class="service-text">* Large FOV 57.6 x 43.5 mm,
+                    Scanning speed of 1200 fps
+                    [frames per Linear Motors on X &
+                    Y Axis <br>
+                    * 4 Top and 4 Angular cameras. <br>
+                    * Each Camera is 5 Mega Pixel and
+                    module cumulates to 20-60 Mega
+                    Pixel size  <br> </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/wave solder.png'%}" alt="Wave Solder Machine Image">
+                </div>
+                <h2 class="service-heading">WAVE SOLDER MACHINE| EMS TECHNOLOGY| INDIA</h2>
+                <p class="service-text">* This Unit Contain Spray
+                    Fluxer (5Ltr.+1Ltr. Solvent)tank. <br>
+                    * It has 150Kg Of Solder Bath Pot <br>
+                    * Conveyor Speed 0 to 2 Min <br>
+                    * Conveyer Angle 4 & 5 Degree <br>
+                    * Max. Width Up to 300mm  <br> </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/bga rework station.png'%}" alt="BGA Rework Station Image">
+                </div>
+                <h2 class="service-heading">BGA REWORK STATION</h2>
+                <p class="service-text">
+                    * Heating Method: Infrared (IR) and hot air <br>
+                    * Maximum PCB Size: 400mm x 400mm <br>
+                    * Placement Accuracy: ±0.01mm <br>
+                    * Component Types: BGA, QFN, CSP, μBGA <br>
+                    * Temperature Control: PID with real-time monitoring <br>
+                    * Features: Bottom heater for preheating, vision system for alignment, reflow profile customization <br>
+                </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/automatic flash .png'%}" alt="Automatic Flash Programmer Image">
+                </div>
+                <h2 class="service-heading">AUTOMATIC FLASH PROGRAMMER</h2>
+                <p class="service-text">
+                    * Supported Devices: EEPROM, Flash memory, Microcontrollers <br>
+                    * Programming Speed: Up to 1000 devices per hour <br>
+                    * Interface: USB, Ethernet <br>
+                    * Programming Algorithms: Universal and device-specific algorithms <br>
+                    * Features: Automated socket handling, barcode scanner support, self-calibration <br>
+                </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/tinning.png'%}" alt="Tinning & De-Golding Pot Image">
+                </div>
+                <h2 class="service-heading">TINNING & DE-GOLDING POT</h2>
+                <p class="service-text">
+                    * Pot Capacity: 10kg <br>
+                    * Heating Method: Induction heating <br>
+                    * Temperature Control: Digital, adjustable up to 450°C <br>
+                    * Flux Type: Water-soluble flux <br>
+                    * Flux Capacity: 2 liters <br>
+                    * Features: Automatic flux replenishment system, fume extraction <br>
+                </p>
+            </div>
+            <div class="service-item">
+                <div class="icon-wrapper">
+                    <img src="{% static 'img/solder paster.png'%}" alt="Solder Paste Mixer Image">
+                </div>
+                <h2 class="service-heading">SOLDER PASTE MIXER</h2>
+                <p class="service-text">
+                    * Capacity: 500g to 20kg batches <br>
+                    * Mixing Time: Adjustable from 1 to 10 minutes <br>
+                    * Rotational Speed: 500 to 2000 RPM <br>
+                    * Vacuum Mode: Yes, for air bubble removal <br>
+                    * Programmable Settings: Temperature, mixing duration, rotation speed <br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("imageModal");
+
+    // Get the modal image element
+    var modalImg = document.getElementById("modalImg");
+
+    // Get all icon images
+    var iconImages = document.querySelectorAll(".icon-wrapper img");
+
+    // Add click event to each icon image
+    iconImages.forEach(function(img) {
+        img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+    });
+
+    // Close the modal when the user clicks anywhere outside of the modal image
+    modal.addEventListener("click", function(event) {
+        if (event.target !== modalImg) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Optional: close the modal when the user presses the ESC key
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
+    <!-- in side machine end  -->
+
+
+
+    <!-- infrastructure -->
+    <div class="gallery">
+        <div class="gallery-item"><img src="{% static 'img/home12.JPG'%}" alt="Image 1"></div>
+        <div class="gallery-item"><img src="{% static 'img/home3.JPG'%}" alt="Image 2"></div>
+        <div class="gallery-item"><img src="{% static 'img/home4.JPG'%}" alt="Image 3"></div>
+        <div class="gallery-item"><img src="{% static 'img/home5.JPG'%}" alt="Image 4"></div>
+        <div class="gallery-item"><img src="{% static 'img/home7.JPG'%}" alt="Image 5"></div>
+        <div class="gallery-item"><img src="{% static 'img/home8.JPG'%}" alt="Image 6"></div>
+        <div class="gallery-item"><img src="{% static 'img/home10.JPG'%}" alt="Image 7"></div>
+        <div class="gallery-item"><img src="{% static 'img/home2.JPG'%}" alt="Image 8"></div>
+
+        </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+
+        // Close the modal when the user clicks on <span> (x) or anywhere outside the modal content
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <!-- JavaScript Libraries -->
+
+<!-- infrastructure img script end -->
+
+
+    <!-- Footer Start -->
+   <div class="container-fluid footer ">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Contact us</h4>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope me-3"></i>
+                        <a href="mailto:info@mcbsintl.com">info@mcbsintl.com</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt me-3"></i>
+                        <a href="tel:+919131080293">+91 9131080293</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fab fa-whatsapp me-3"></i>
+                        <a href="https://wa.me/919131080293">+91 9131080293</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt me-3"></i>
+                        B-134-139, GIDC Electronics Estate, Sector-25, Gandhinagar-382024, Gujarat, India
+                    </p>
+                    <p class="mb-8">
+                        <i class="fa fa-clock me-3"></i>Mon to Sat <br>10:00 AM - 06:00 PM
+                    </p>
+                </div>
+
+                <!-- Services Section -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Quick Link</h4>
+                    <p><a href="/#">Home</a></p>
+                    <p><a href="/loadabout">About us</a></p>
+                    <p><a href="/loadservice">Services</a></p>
+                    <p><a href="/loadinfrastructure">Infrastructure</a></p>
+                    <p><a href="/loadcontact">Contact us</a></p>
+                    <div class="footer-logo-section">
+                        <img src="{% static 'img/9001.jpg'%}" alt="ISO Logo" class="footer-logo">
+                        <img src="{% static 'img/Indian_Space_Research_Organisation_Logo.svg-removebg-preview.jpg'%}" alt="ISRO Logo" class="footer-logo">
+                        <img src="{% static 'img/DRDO.jpg'%}" alt="DRDO Logo" class="footer-logo">
+                        <img src="{% static 'img/Space_Applications_Centre_logo-removebg-preview.jpg'%}" alt="Space Applications Centre" class="footer-logo">
+                    </div>
+
+                </div>
+
+                <!-- Account Section -->
+                <div class="col-lg-3 col-md-6">
+                    <!-- <h4 class="mb-4">Account</h4>
+                    <p><a href="myprofile.html" class="text-dark">My Profile</a></p>
+                    <p><a href="myorders.html" class="text-dark">My Orders</a></p>
+                    <p><a href="trackinquiry.html" class="text-dark">Track Inquiry</a></p>
+                    <p><a href="trackquotation.html" class="text-dark">Track Quotation</a></p> -->
+                    <!-- <div class="footer-logo-section">
+                        <img src="img/9001.jpg" alt="ISO Logo" class="footer-logo">
+                        <img src="img/Indian_Space_Research_Organisation_Logo.svg-removebg-preview.jpg" alt="UL Logo" class="footer-logo">
+                        <img src="img/DRDO.jpg" alt="ISRO Logo" class="footer-logo">
+                        <img src="img/ministry-of-defence-logo.png" alt="Ministry of Defence Logo" class="footer-logo">
+                    </div> -->
+                </div>
+
+                <!-- Follow Us Section -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="mb-4">Follow Us</h4>
+                 <div class="d-flex pt-2">
+                        <a href="https://www.linkedin.com/showcase/mcbs-ems/about/" style="margin-right: 15px;">
+                            <i class="fab fa-linkedin" style="font-size: 2rem; color: #0077b5;"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCXOqgJp2fvgp_h25prmP1Rw" style="margin-right: 15px;">
+                            <i class="fab fa-youtube" style="font-size: 2rem; color: #ff0000;"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100069168183177&sk=about" style="margin-right: 15px;">
+                            <i class="fab fa-facebook" style="font-size: 2rem; color: #3b5998;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mcbs_ems/" style="margin-right: 15px;">
+                            <i class="fab fa-instagram" style="font-size: 2rem; color: #e4405f;"></i>
+                        </a>
+                    </div>
+
+                    <!-- <h4 class="mt-4 mb-4">Payment Methods</h4>
+                    <div class="d-flex pt-2">
+                        <img src="img/paytm.png" alt="Paytm">
+                        <img src="img/neft.png" alt="NEFT">
+                        <img src="img/rtgs.png" alt="RTGS">
+                        <img src="img/visa.png" alt="Visa">
+                        <img src="img/mastercard.png" alt="MasterCard">
+                        <img src="img/amex.png" alt="American Express">
+                    </div> -->
+                    <!-- <h4 class="mt-4 mb-4">Delivery Services</h4>
+                    <div class="d-flex pt-2">
+                        <img src="img/tirupati.png" alt="Tirupati">
+                        <img src="img/bluedart.png" alt="Blue Dart">
+                        <img src="img/delhivery.png" alt="Delhivery">
+                        <img src="img/dtdc.png" alt="DTDC">
+                        <img src="img/smartr.png" alt="Smartr">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-12">
+                        &copy; <a class="border-bottom" href="/loadinfrastructure">MCBS-EMS. ALL RIGHTS RESERVED.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="/loadinfrastructure" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+    <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js'%}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+
+</html>
